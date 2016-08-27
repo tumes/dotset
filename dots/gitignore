@@ -17,3 +17,6 @@ tmp/*
 log/*
 .powenv
 .env
+.pry_history
+.byebug_hist
+.ls-platform-requirements

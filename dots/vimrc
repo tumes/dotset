@@ -73,9 +73,7 @@ if has("mouse")
  set mouse=a
 endif
 
-if $TERM == 'xterm-color' && &t_Co == 8
-  set t_Co=16
-endif
+set t_Co=256
 
 let mapleader=','
 
@@ -99,8 +97,8 @@ let g:buffergator_split_size=10
 let g:statline_filename_relative=1
 let g:statline_show_encoding=0
 
-let g:syntastic_auto_loc_list=1
-let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
 
 " let g:SuperTabDefaultCompletionType='context'
 let g:SuperTabLongestEnhanced=1
@@ -202,8 +200,8 @@ map <leader>rt :!ctags --extra=+f -R *<cr><cr>
 map <silent><leader>lc :lcl<cr>
 
 " Yank/paste contents using an unnamed register
-vmap <silent><leader>y "xy
-map <silent><leader>p "xp
+" vmap <silent><leader>y "xy
+" map <silent><leader>p "xp
 
 " Toggles GitGutter for a file
 map <silent><leader>gg :GitGutterToggle<cr>
@@ -255,12 +253,10 @@ endif
 
 " Default theme
 " -----------------------------------------------------------------------------
-set background=dark
-colorscheme colorblind
+colorscheme zenburn
 
 " Load user config
 " -----------------------------------------------------------------------------
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-

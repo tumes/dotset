@@ -4,7 +4,8 @@
   branch = auto
   ui = auto
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/robertbrandin/.gitignore.global
+	autocrlf = input
 [alias]
   c = commit -a
   a = add
@@ -20,6 +21,8 @@
   del = !FILES=$(git ls-files --deleted) && git rm $FILES
   msg = commit --allow-empty -m
   glog = log --pretty='format:%d %Cgreen%h%Creset %an - %s' --graph
+  copr = "!f() { git fetch -fu origin refs/pull/$1/head:pr-$1; git checkout pr-$1; } ; f"
+  prunepr = "!git for-each-ref refs/heads/pr-* --format='%(refname:short)' | while read ref ; do git branch -D $ref ; done"
 [help]
   autocorrect = 1
 [push]
@@ -36,4 +39,11 @@
   trustExitCode = false
 [rerere]
   enabled = 1
+[commit]
+  template = ~/.gitmessage
 
+[user]
+	name = Robert Brandin
+	email = robert.brandin@livingsocial.com
+[credential]
+	helper = osxkeychain
